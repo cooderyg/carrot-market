@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
+import Layout from "../components/layout";
 
 const ItemDetail: NextPage = () => {
     return (
-      <div className="px-4 py-10">
+      <Layout  canGoBack >
+        <div className="px-4 py-10">
         <div className="mb-8">
           <div className="h-96 bg-slate-300" />
           <div className="flex cursor-pointer py-3 border-t border-b items-center space-x-3">
@@ -60,6 +62,7 @@ const ItemDetail: NextPage = () => {
           </div>
         </div>
       </div>
+      </Layout>
     );
   };
   

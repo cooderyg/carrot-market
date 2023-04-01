@@ -1,10 +1,9 @@
 import { useState } from "react";
+import Layout from "./components/layout";
 
-function cls(...classnames:string[]) {
-  return classnames.join(" ")
-}
 export default function Home() {
   return (
+    <Layout title="홈" hasTabBar>
     <div className="flex flex-col space-y-5 py-10">
       {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
         <div key={i} className="flex px-4 border-b pb-4 cursor-pointer justify-between">
@@ -72,5 +71,6 @@ export default function Home() {
         </svg>
       </button>
     </div>
+    </Layout>
   );
 }

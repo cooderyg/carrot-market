@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
+import Layout from "../components/layout";
 
 const Stream: NextPage = ()=> {
     return (
-        <div className="py-10  divide-y-2 space-y-4">
+        <Layout title="라이브" hasTabBar>
+            <div className="py-10  divide-y-2 space-y-4">
                {[1, 1, 1, 1, 1, 1, 1, 1].map((_, i)=> 
                 <div className="px-4 pt-4" key={i}>
                     <div className="w-full rounded-md shadow-sm bg-slate-300 aspect-video " />
@@ -15,7 +17,8 @@ const Stream: NextPage = ()=> {
                     </svg>
 
                 </button>
-        </div>
+            </div>
+        </Layout>
     )
 }
 
