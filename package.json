@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.12.0",
+    "@sendgrid/mail": "^7.7.0",
     "@tailwindcss/forms": "^0.5.3",
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
@@ -21,6 +22,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
+    "twilio": "^4.10.0",
     "typescript": "5.0.2"
   },
   "devDependencies": {
