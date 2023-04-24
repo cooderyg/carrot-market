@@ -1,4 +1,3 @@
-
 import {withIronSessionApiRoute} from "iron-session/next";
 import client from "@/libs/server/client";
 import withHandler, { ResponseType } from "@/libs/server/withHandler";
@@ -11,33 +10,24 @@ async function handler (
     req:NextApiRequest,
     res:NextApiResponse<ResponseType>
     ){
-    const {
-     query: { id },
-     session: { user },
-     body: { answer }
+    const { 
+        session: { user }
     } = req;
-    const newAnswer = await client.answer.create({
-        data: {
-            user: {
-                connect: {
-                    id: user?.id,
-                },
-            },
-            post: {
-                connect: {
-                    id: +id.toString(),
-                }
-            },
-            answer,
+    const purchases = await client.purchase.findMany({
+        where: {
+            userId:  user?.id,
         },
+        include: {
+            product: true,
+        }
     })
     res.json({
         ok: true,
-        answer: newAnswer,
+        purchases,
     })
 }
 
 export default withApiSession(withHandler({
-    methods: ["POST"],
+    methods: ["GET"],
     handler
 }))

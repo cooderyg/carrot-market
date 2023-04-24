@@ -10,13 +10,10 @@ async function handler (
     req:NextApiRequest,
     res:NextApiResponse<ResponseType>
     ){
-    const {
-        body: { question, latitude, longitude },
-        session: { user },
-    } = req;
     if(req.method === "POST") {
         const {
-            query: {latitude, longitude},
+            body: { question, latitude, longitude },
+            session: { user },
         } = req;
         const post = await client.post.create({
             data: {
@@ -39,6 +36,7 @@ async function handler (
         const {
             query: {latitude, longitude},
         } = req;
+       
         const parsedLatitude = parseFloat(latitude.toString())
         const parsedLongitude = parseFloat(longitude.toString())
         const posts = await client.post.findMany({

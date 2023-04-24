@@ -27,7 +27,6 @@ const Community: NextPage = () => {
     ? `/api/posts?latitude=${latitude}&longitude=${longitude}` 
     : null
     );
-  
   return (
     <Layout hasTabBar title="동네생활">
       <div className="space-y-4 divide-y-[2px]">

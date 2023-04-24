@@ -1,3 +1,4 @@
+import { IronSessionOptions } from "iron-session";
 import {withIronSessionApiRoute} from "iron-session/next";
 
 declare module "iron-session" {
@@ -9,7 +10,7 @@ declare module "iron-session" {
 }
 
 
-const cookieOptions = {
+const cookieOptions :IronSessionOptions = {
     cookieName: "carrotsession",
     password: process.env.COOKIE_PASSWORD!,
 }
